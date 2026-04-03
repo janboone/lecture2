@@ -2,6 +2,9 @@ import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+from scipy.optimize import minimize
+from scipy.optimize import fsolve
+
 st.set_page_config(page_title="Lecture 2", layout="wide")
 
 st.title("Healthcare")
@@ -46,7 +49,6 @@ calc = st.button("Calculate Linear Fit", key="health_linear_fit")
 def linear_trend(years, intercept, slope):
     return intercept + slope * (years - years.iloc[0])
 
-from scipy.optimize import minimize
 
 if calc:
     years = df.Year
@@ -157,7 +159,6 @@ This model fits the data much better than the simple OLS linear trend (blue cros
 """)
 
     # 3. Use fsolve to find required OOP to hold CHE fixed at 2014 level
-    from scipy.optimize import fsolve
 
     che_2014 = df.loc[df.Year == 2014, 'CHE_per_head'].values[0]
     years_proj = np.arange(2015, 2025)
