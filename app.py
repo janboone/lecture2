@@ -191,7 +191,7 @@ This model fits the data much better than the simple OLS linear trend (blue cros
 
     fig5, ax5 = plt.subplots(figsize=(8,5))
     ax5.plot(years_proj, oop_data, marker='o', label='Actual OOP')
-    ax5.plot(years_proj, oop_needed, marker='s', label='Required OOP to hold healthcare expenditure fixed\n(at 2014 level)')
+    ax5.plot(years_proj, oop_needed, marker='s', label='Required OOP to hold expenditure fixed\n(at 2014 level)')
     ax5.set_xlabel('Year')
     ax5.set_ylabel('Out-of-pocket (% of healthcare expenditure)')
     ax5.set_title('OOP Levels Needed to Hold Healthcare Expenditure per Capita Constant (2015-2024)')
@@ -200,8 +200,8 @@ This model fits the data much better than the simple OLS linear trend (blue cros
     st.pyplot(fig5)
     st.markdown("""
 **Required OOP to hold expenditure fixed:**  
-The green squares show the percentage of out-of-pocket payments (OOP) needed in each year to keep healthcare expenditure per capita at the 2014 level, according to the multi-variable model.  
-The actual OOP values are shown as orange circles.
+The orange squares show the percentage of out-of-pocket payments (OOP) needed in each year to keep healthcare expenditure per capita at the 2014 level, according to the multi-variable model.  
+The actual OOP values are shown as blue circles.
 
 A numerical solver (`fsolve`) is used to find the required OOP for each year.  
 This demonstrates how you can use numerical methods to solve for policy variables in a model.
